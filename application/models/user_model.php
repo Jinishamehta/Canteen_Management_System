@@ -5,7 +5,7 @@ class User_model extends CI_Model {
 	public function login_user($username,$password){
 
 		$this->db->where('username',$username);
-		$results = $this->db->get('z_users');
+		$results = $this->db->get('user');
 		$db_password = $results->row(6)->password;
 
 		if(password_verify($password, $db_password)) 
@@ -29,16 +29,13 @@ class User_model extends CI_Model {
 
 	public function create_users(){
 
-		$option = ['cost'=> 12];
-
 		$encrypted_pass = password_hash($this->input->post('password'),PASSWORD_BCRYPT,$option);
 
 		if($this->session->userdata('user_type')){
 
 		$data = array(
 
-				'first_name' => $this->input->post('first_name'),
-				'last_name'  => $this->input->post('last_name'),
+				'first_name' => $this->input->post('name'),
 				'email' 	 => $this->input->post('email'),
 				'username'   => $this->input->post('username'),
 				'password'   => $encrypted_pass,
