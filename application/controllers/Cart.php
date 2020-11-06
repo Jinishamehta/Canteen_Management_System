@@ -29,10 +29,23 @@ class Cart extends CI_Controller {
 	public function save_order(){
 		
 		$type = $_POST['payment_type'];
-		echo $type;
-		$this->cart_model->save_order($type);
-		echo "hello";
-		redirect(base_url().'Pages');
+		if($type=="Wallet"){
+			$wallet=$this->cart_model->wallet();
+			$total=$this->cart_model->total();
+			if($wallet<$total){
+				$this->session->set_flashdata('low credits','Please change payment method due to low credits');
+				$this->load->view('template/header');
+				$this->load->view('pages/payment');
+				$this->load->view('template/footer');
+			}else{
+				$this->cart_model->deduct();
+				$this->cart_model->save_order($type);
+				redirect(base_url().'Pages');
+			}
+		}else{
+			$this->cart_model->save_order($type);
+			redirect(base_url().'Pages');
+		}
 	}
 }
 
