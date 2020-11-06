@@ -46,6 +46,11 @@
       				<li class="nav-item">
         				<a class="nav-link" href="<?php echo base_url();?>Pages/menu">Menu</a>
       				</li>
+              <?php if($this->session->userdata('logged_in')): ?>
+                <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url();?>Inventory/get_orders">Order</a>
+                </li>
+              <?php endif;?>
       				<li class="nav-item">
       					<a class="nav-link" href="<?php echo base_url();?>Pages/about">About Us</a>
               </li>  

@@ -20,6 +20,12 @@ class Inventory extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function get_orders() {
+		$this->load->view('template/header');
+		$data['order'] = $this->inventory_model->get_all_orders();
+		$this->load->view('pages/order', $data);
+		$this->load->view('template/footer');
+	}
 	//Add new food Item
 	public function add_product(){
 

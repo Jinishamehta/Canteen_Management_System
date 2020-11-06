@@ -12,5 +12,11 @@ class Inventory_model extends CI_Model {
 		$query = $this->db->insert('food',$data);
 		return $query;
 	}
+
+	public function get_all_orders(){
+		$this->db->where('user_id',$this->session->userdata('user_id'));
+		$query = $this->db->get('order');
+		return $query->result();
+	}
 }
 ?>

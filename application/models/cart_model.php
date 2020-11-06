@@ -44,10 +44,10 @@ class Cart_model extends CI_Model {
 					'payment_type'=>$data,
 					'amt' =>$total,
 					);
-echo "helloe";
+
  			$this->db->insert('order',$details);
  			$order = $this->db->insert_id();
-echo "$order";
+
 			for ($i = 0;$i<$num;$i++) {
 				$detail = array(
 					'id'=>$order,
