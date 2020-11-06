@@ -21,12 +21,18 @@ class Cart extends CI_Controller {
 			$this->load->view('template/header');
 			$this->load->view('pages/payment');
 			$this->load->view('template/footer');
+		}else{
+			redirect(base_url().'Pages');
 		}
 	}
 
 	public function save_order(){
+		
 		$type = $_POST['payment_type'];
 		echo $type;
+		$this->cart_model->save_order($type);
+		echo "hello";
+		redirect(base_url().'Pages');
 	}
 }
 
