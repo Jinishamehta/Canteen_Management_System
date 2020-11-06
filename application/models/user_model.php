@@ -6,9 +6,8 @@ class User_model extends CI_Model {
 
 		$this->db->where('username',$username);
 		$results = $this->db->get('user');
-		$db_password = $results->row(6)->password;
-
-		if(password_verify($password, $db_password)) 
+		$db_password = $results->row()->password;
+		if($password==$db_password) 
 			return $results->row();
 	}
 
@@ -29,34 +28,30 @@ class User_model extends CI_Model {
 
 	public function create_users(){
 
-		$encrypted_pass = password_hash($this->input->post('password'),PASSWORD_BCRYPT,$option);
-
+		// $encrypted_pass = password_hash($this->input->post('password'),PASSWORD_BCRYPT);
+		// console.log($encrypted_pass );
 		if($this->session->userdata('user_type')){
 
 		$data = array(
 
-				'first_name' => $this->input->post('name'),
-				'email' 	 => $this->input->post('email'),
+				'name' => $this->input->post('name'),
+				'email' => $this->input->post('email'),
 				'username'   => $this->input->post('username'),
 				'password'   => $encrypted_pass,
-				'user_type'  => '1'
-
 				);
 		}else{
 
 			$data = array(
 
-				'first_name' => $this->input->post('first_name'),
-				'last_name'  => $this->input->post('last_name'),
-				'email' 	 => $this->input->post('email'),
+				'name' => $this->input->post('name'),
+				'email' => $this->input->post('email'),
 				'username'   => $this->input->post('username'),
-				'password'   => $encrypted_pass
-
+				'password'   => $this->input->post('password'),
 				);
 
 		}
 
-		$insert_data = $this->db->insert('z_users',$data);
+		$insert_data = $this->db->insert('user',$data);
 		return $insert_data;
 	}
 

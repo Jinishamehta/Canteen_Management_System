@@ -1,5 +1,5 @@
-<div class="container">
-<hr>
+ <div class="container">
+  <hr>
 	<?php echo form_open('user/login');?>
 
         <div class="form-group">
@@ -37,6 +37,5 @@
         <hr>
         
     <?php echo form_close(); ?>
-<?php //endif; ?>
-</div>
+
 
