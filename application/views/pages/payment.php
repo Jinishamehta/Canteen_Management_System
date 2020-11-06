@@ -1,5 +1,8 @@
 <div class="container">
 	<hr>
+	<?php if($this->session->flashdata('low_credits')): ?>
+		<?php echo $this->session->flashdata('low_credits'); ?>
+	<?php endif; ?>
 <div class="row">
     <div class="input-field col s12">
     	<form class="formValidate col s12 m12 l6" id="formValidate" method="post" action="<?php echo base_url();?>Cart/save_order">

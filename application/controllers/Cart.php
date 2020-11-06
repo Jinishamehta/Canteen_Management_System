@@ -33,7 +33,7 @@ class Cart extends CI_Controller {
 			$wallet=$this->cart_model->wallet();
 			$total=$this->cart_model->total();
 			if($wallet<$total){
-				$this->session->set_flashdata('low credits','Please change payment method due to low credits');
+				$this->session->set_flashdata('low_credits','Please change payment method due to low credits');
 				$this->load->view('template/header');
 				$this->load->view('pages/payment');
 				$this->load->view('template/footer');

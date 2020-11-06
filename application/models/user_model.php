@@ -11,21 +11,6 @@ class User_model extends CI_Model {
 			return $results->row();
 	}
 
-	public function get_users($user_id,$username) {
-		
-		$this->db->where([
-
-			'id' => $user_id,
-			'username' => $username
-
-			]);
-
-		$query = $this->db->get('z_users');
-
-		return $query->result();
-	
-	}
-
 	public function create_users(){
 
 		// $encrypted_pass = password_hash($this->input->post('password'),PASSWORD_BCRYPT);
@@ -54,19 +39,6 @@ class User_model extends CI_Model {
 		$insert_data = $this->db->insert('user',$data);
 		return $insert_data;
 	}
-
-	public function update_users($data,$id) {
-
-		$this->db->where(['id' => $id]);
-		$this->db->update('z_users',$data);
-	}
-
-	public function delete_users($id) {
-
-		$this->db->where(['id' => $id]);
-		$this->db->delete('z_users');
-	}
-
 }
 
  ?>

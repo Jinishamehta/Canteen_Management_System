@@ -38,7 +38,7 @@ class User extends CI_Controller
 			}else{
 				echo '<script>alert("failed")</script>';
 				$this->session->set_flashdata('login_failed','Not logged in');
-				redirect(base_url().'Pages/menu');
+				redirect(base_url().'Pages');
 			}
 		}
 		

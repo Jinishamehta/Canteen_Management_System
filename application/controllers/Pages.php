@@ -28,12 +28,5 @@ class Pages extends CI_Controller
 		$this->load->view('template/footer');	
 	}
 
-	// public function order(){
-
-	// 	$this->load->view('template/header');
-	// 	$this->load->view('pages/order');
-	// 	$this->load->view('template/footer');	
-	// }
-
 }
 ?>
