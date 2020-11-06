@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <hr>
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800 ">Cart<a class="btn btn-primary float-right" href="<?php echo base_url(); ?>Cart/place_order">Place Order</a></h1>
+    <h1 class="h3 mb-2 text-gray-800 ">Orders</h1>
 	<hr>
     <!-- DataTales Example -->
     <div class="card shadow mb-4 card-body table-responsive">
@@ -23,8 +23,11 @@
 						<td><?php echo $entry->status; ?></td>
 						<td><?php echo $entry->payment_type; ?></td>
 						<td><?php echo $entry->amt; ?></td>
-            <td><a href="" class="btn-primary">Cancel</a></td>
-						
+            <?php if($entry->status == 'Order placed'):?>
+              <td><a href="<?php echo base_url(); ?>Inventory/refund/<?php echo $entry->id; ?>" class="btn btn-primary">Cancel</a></td>
+            <?php else:?>
+              <td><a href="" class="btn btn-primary disabled">Cancel</a></td>
+            <?php endif; ?>		
 					</tr>
 
 				<?php endforeach; ?>

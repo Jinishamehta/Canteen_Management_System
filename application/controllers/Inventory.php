@@ -26,6 +26,14 @@ class Inventory extends CI_Controller {
 		$this->load->view('pages/order', $data);
 		$this->load->view('template/footer');
 	}
+
+	public function refund($order_id){
+		$this->load->view('template/header');
+		$temp['x'] = $this->inventory_model->refund($order_id);
+	 $data['order'] = $this->inventory_model->get_all_orders();
+		 $this->load->view('pages/order', $data);
+		$this->load->view('template/footer');
+	}
 	//Add new food Item
 	public function add_product(){
 
