@@ -38,7 +38,7 @@
         <div class="card-body">
           <h5 class="card-title">Today's Special</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="<?php echo base_url(); ?>Inventory/get_food_items/special" class="btn btn-primary">View</a>
+          <a href="<?php echo base_url(); ?>Inventory/get_food_items/ts" class="btn btn-primary">View</a>
         </div>
       </div>
     </div>

@@ -2,16 +2,16 @@
 
 class Inventory extends CI_Controller {
 
-	public function __construct(){
+	// public function __construct(){
 
-		parent::__construct();
+	// 	parent::__construct();
 
-		if(!$this->session->userdata('logged_in')){
+	// 	if(!$this->session->userdata('logged_in')){
 
-			$this->session->set_flashdata('no_access','Sorry you are not allowed or not logged in');
-			redirect(base_url().'Pages');
-		}
-	}
+	// 		$this->session->set_flashdata('no_access','Sorry you are not allowed or not logged in');
+	// 		redirect(base_url().'Pages');
+	// 	}
+	// }
 	
 	public function get_food_items($page) {
 		$this->load->view('template/header');

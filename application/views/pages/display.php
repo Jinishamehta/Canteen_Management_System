@@ -36,6 +36,7 @@
    
      <button class="btn btn-outline-secondary" onclick="submit_list()">Save</button>
      <a class="btn btn-outline-secondary" type="button" href="<?php echo base_url();?>Pages/menu">Back</a>
+     <h6>*For adding to cart please select save button</h6>
 
   </div>
 </div>
@@ -62,13 +63,13 @@
           var a=document.getElementById('AU1641072').rows[row].cells;
           a[2].innerHTML=parseInt($(tr).find('td:eq(2)').text() )+ 1;
           d =1;
-          // document.getElementById('AU1641072').deleteRow(0);
-      
+          alert("product added");      
         }
       });
       if(d==1){
         console.log('updated');
       }else{
+        alert("product added");
         var qty = 1;
         $('#AU1641072 tbody:last-child').append(
           '<tr>'+
@@ -95,8 +96,6 @@
               orderList.push(sub1);               
             });
           orderList.splice(0,1);
-          console.log(orderList);
-          alert("order list completed");
           return orderList;
 
       }
@@ -114,7 +113,6 @@
             alert("Success");
           },
           error: function(error){
-            alert(error);
             console.log(error);
           }
         });
